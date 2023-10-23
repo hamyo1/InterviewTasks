@@ -48,12 +48,13 @@ namespace ShekelIntegrationTest
                                     group.groupCode = (int)reader["groupCode"];
                                     group.customers = new List<Customer>();
                                     groups.Add(group);
+                                    isFirst = false;
                                 }
 
                                 if (!isFirst && preGroupCode != (int)reader["groupCode"])
                                 {
                                     preGroupCode = (int)reader["groupCode"];
-
+                                    group = new Group();
                                     group.groupName = (string)reader["groupName"];
                                     group.groupCode = (int)reader["groupCode"];
                                     group.customers = new List<Customer>();
@@ -73,7 +74,6 @@ namespace ShekelIntegrationTest
                                 }
 
                             }
-                            isFirst=false;
                         }
                     }
 
