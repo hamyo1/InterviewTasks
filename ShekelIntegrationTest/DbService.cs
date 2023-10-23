@@ -31,10 +31,9 @@ namespace ShekelIntegrationTest
                         DbDataReader reader = await command.ExecuteReaderAsync();
 
                         int preGroupCode = 0;
-                        int index = 0;
+                        bool isFirst = true;
                         Customer customer = new Customer();
                         Group group = new Group();
-                        group.customers = new List<Customer>();
 
 
                         while (await reader.ReadAsync())
@@ -42,40 +41,40 @@ namespace ShekelIntegrationTest
                             if (reader["groupName"].GetType() == typeof(string) && !string.IsNullOrWhiteSpace((string)reader["groupName"])
                                 && (int)reader["groupCode"] > 0)
                             {
-
-
-                                if (index != 0 && preGroupCode != (int)reader["groupCode"])
-                                {
-                                    groups.Add(group);
-                                    preGroupCode = group.groupCode;
-                                    group = new Group();
-                                    group.customers = new List<Customer>();
-                                }
-                                else if (index == 0)
+                                if (isFirst)
                                 {
                                     preGroupCode = (int)reader["groupCode"];
+
+                                    group.groupName = (string)reader["groupName"];
+                                    group.groupCode = (int)reader["groupCode"];
+                                    group.customers = new List<Customer>();
+                                    groups.Add(group);
                                 }
 
-                                group.groupName = (string)reader["groupName"];
-                                group.groupCode = (int)reader["groupCode"];
+                                if (!isFirst && preGroupCode != (int)reader["groupCode"])
+                                {
+                                    preGroupCode = (int)reader["groupCode"];
+
+                                    group.groupName = (string)reader["groupName"];
+                                    group.groupCode = (int)reader["groupCode"];
+                                    group.customers = new List<Customer>();
+                                    groups.Add(group);
+
+                                }
+
+
 
                                 if (reader["name"].GetType() == typeof(string) && !string.IsNullOrWhiteSpace((string)reader["name"]) ||
                                     reader["customerId"].GetType() == typeof(string) && !string.IsNullOrWhiteSpace((string)reader["customerId"]))
                                 {
+                                    customer = new Customer();
                                     customer.name = (string)reader["name"];
                                     customer.customerId = (string)reader["customerId"];
-
                                     group.customers.Add(customer);
-                                    customer = new Customer();
                                 }
 
                             }
-                            index++;
-                        }
-
-                        if ((groups.Count == 0 && preGroupCode != 0) || (groups.Count > 0 && preGroupCode != group.groupCode))
-                        {
-                            groups.Add(group);
+                            isFirst=false;
                         }
                     }
 

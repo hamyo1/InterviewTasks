@@ -8,6 +8,8 @@ using ExpressionTree;
 using System.Data.SqlClient;
 using MySqlX.XDevAPI.Common;
 
+//DatabaseWrapper SOLUTION MYSQL AND MSSQL TOO
+
 namespace ShekelIntegrationTest
 {
     public class DatabaseWrapper : IDbService
