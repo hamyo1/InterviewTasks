@@ -1,18 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Microsoft.Identity.Client;
-using System.Data.Common;
+﻿using System.Data.Common;
+using System.Data.SqlClient;
 
 namespace ShekelIntegrationTest
 {
-
-    public interface IDbService
-    {
-        public Task<List<Group>> GetAllGroupsAndCustomers();
-        public Task<bool> InsertNewCustomer(NewCustomerRequest newCustomerRequest);
-
-    }
 
     public class DbService : IDbService
     {
