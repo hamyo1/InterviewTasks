@@ -1,7 +1,7 @@
 # InterviewTasks
 InterviewTask for shekel
 
-תשובה לשאלת הבונוס
+תשובה לשאלת הבונוס - ביצעתי שתי פעמים קודם כל רגיל ללא השאלת בונוס , ואחר כך הוספתי קלאס בשם של הנוגט ושמה ממשתי פתרון שכולל את הבונוס..
 https://github.com/jchristn/DatabaseWrapper
 
 
