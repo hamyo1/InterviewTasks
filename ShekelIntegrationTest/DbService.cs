@@ -32,7 +32,6 @@ namespace ShekelIntegrationTest
 
                         int preGroupCode = 0;
                         bool isFirst = true;
-                        Customer customer = new Customer();
                         Group group = new Group();
 
 
@@ -67,7 +66,7 @@ namespace ShekelIntegrationTest
                                 if (reader["name"].GetType() == typeof(string) && !string.IsNullOrWhiteSpace((string)reader["name"]) ||
                                     reader["customerId"].GetType() == typeof(string) && !string.IsNullOrWhiteSpace((string)reader["customerId"]))
                                 {
-                                    customer = new Customer();
+                                    Customer customer = new Customer();
                                     customer.name = (string)reader["name"];
                                     customer.customerId = (string)reader["customerId"];
                                     group.customers.Add(customer);
