@@ -17,6 +17,7 @@ https://github.com/jchristn/DatabaseWrapper
 
 
 ![image](https://github.com/hamyo1/InterviewTasks/assets/48315227/214896dc-9e2d-47b0-9f3a-8e6ad6e88140)
+
 תמונה של הפונקציה שמכניסה נתונים
 
 ![image](https://github.com/hamyo1/InterviewTasks/assets/48315227/32060700-7e1e-425d-84f9-b736efcc8c1d)
