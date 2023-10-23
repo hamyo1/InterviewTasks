@@ -16,7 +16,7 @@ https://github.com/jchristn/DatabaseWrapper
 להלן הjson שחוזר
 
 
-![image](https://github.com/hamyo1/InterviewTasks/assets/48315227/214896dc-9e2d-47b0-9f3a-8e6ad6e88140)
+![image](https://github.com/hamyo1/InterviewTasks/assets/48315227/754768fb-af34-469e-837a-1cde74202298)
 
 תמונה של הפונקציה שמכניסה נתונים
 
